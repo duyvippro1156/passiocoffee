@@ -22,19 +22,19 @@ public class ChonMonAdapter extends BaseAdapter {
 
 
     private Context context;
-    private List<ChonMon> chonMonList304;
-    public ChonMonAdapter(Context context, List<ChonMon> chonMonList304){
+    private List<ChonMon> chonMonList309;
+    public ChonMonAdapter(Context context, List<ChonMon> chonMonList309){
         this.context = context;
-        this.chonMonList304 =chonMonList304;
+        this.chonMonList309 =chonMonList309;
     }
     @Override
     public int getCount() {
-        return chonMonList304.size();
+        return chonMonList309.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return chonMonList304.get(i);
+        return chonMonList309.get(i);
     }
 
     @Override
@@ -43,10 +43,10 @@ public class ChonMonAdapter extends BaseAdapter {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView mImage304;
-        TextView mLangTitle304, mLangPrice304;
-        ImageView proImg304;
-        TextView proTitle304, proPrice304;
+        ImageView mImage309;
+        TextView mLangTitle309, mLangPrice309;
+        ImageView proImg309;
+        TextView proTitle309, proPrice309;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -58,9 +58,9 @@ public class ChonMonAdapter extends BaseAdapter {
         if (view == null){
             view = LayoutInflater.from(context).inflate(R.layout.item_order, null);
             holder = new ViewHolder(view);
-            holder.mImage304 = (ImageView) view.findViewById(R.id.image);
-            holder.mLangTitle304 = (TextView) view.findViewById(R.id.name);
-            holder.mLangPrice304 = (TextView) view.findViewById(R.id.price);
+            holder.mImage309 = (ImageView) view.findViewById(R.id.image);
+            holder.mLangTitle309 = (TextView) view.findViewById(R.id.name);
+            holder.mLangPrice309 = (TextView) view.findViewById(R.id.price);
 
             view.setTag(holder);
         }
@@ -68,12 +68,12 @@ public class ChonMonAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         try{
-            ChonMon c304 = chonMonList304.get(i);
-            String image = c304.getImage();
+            ChonMon c309 = chonMonList309.get(i);
+            String image = c309.getImage();
             int resId = ((Activity)context).getResources().getIdentifier(image, "drawable", ((Activity)context).getPackageName());
-            holder.mImage304.setImageResource(resId);
-            holder.mLangTitle304.setText(c304.getTitle());
-            holder.mLangPrice304.setText(c304.getPrice());
+            holder.mImage309.setImageResource(resId);
+            holder.mLangTitle309.setText(c309.getTitle());
+            holder.mLangPrice309.setText(c309.getPrice());
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -81,18 +81,18 @@ public class ChonMonAdapter extends BaseAdapter {
 
                     View bottomSheetView = null;
                     final ViewHolder holder1;
-                    String Title = chonMonList304.get(i).getTitle();
-                    String Price = chonMonList304.get(i).getPrice();
-                    int resId = ((Activity)context).getResources().getIdentifier(chonMonList304.get(i).getImage(), "drawable", ((Activity)context).getPackageName());
+                    String Title = chonMonList309.get(i).getTitle();
+                    String Price = chonMonList309.get(i).getPrice();
+                    int resId = ((Activity)context).getResources().getIdentifier(chonMonList309.get(i).getImage(), "drawable", ((Activity)context).getPackageName());
 
                     final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context,R.style.BottomSheetDialogTheme);
                     if( bottomSheetView == null){
                         bottomSheetView = LayoutInflater.from(context).inflate(R.layout.activity_click_buy,null);
                         holder1 = new ViewHolder(bottomSheetView);
 
-                        holder1.proImg304 = (ImageView) bottomSheetView.findViewById(R.id.dialog_image);
-                        holder1.proTitle304 = (TextView) bottomSheetView.findViewById(R.id.dialog_title);
-                        holder1.proPrice304 = (TextView) bottomSheetView.findViewById(R.id.dialog_price);
+                        holder1.proImg309 = (ImageView) bottomSheetView.findViewById(R.id.dialog_image);
+                        holder1.proTitle309 = (TextView) bottomSheetView.findViewById(R.id.dialog_title);
+                        holder1.proPrice309 = (TextView) bottomSheetView.findViewById(R.id.dialog_price);
 
                         bottomSheetView.setTag(holder1);
                     }
@@ -101,9 +101,9 @@ public class ChonMonAdapter extends BaseAdapter {
                     }
 
                     try {
-                        holder1.proTitle304.setText(Title);
-                        holder1.proPrice304.setText(Price);
-                        holder1.proImg304.setImageResource(resId);
+                        holder1.proTitle309.setText(Title);
+                        holder1.proPrice309.setText(Price);
+                        holder1.proImg309.setImageResource(resId);
                     } catch (Exception ex){
 
                     }
